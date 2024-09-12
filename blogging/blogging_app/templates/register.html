@@ -1,0 +1,14 @@
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    <div class="mb-4">
+        <label for="username" class="block text-gray-700">Username:</label>
+        <input type="text" name="username" id="username" required class="w-full p-2 border border-gray-300 rounded-md">
+    </div>
+    
+    <div class="mb-4">
+        <label for="password" class="block text-gray-700">Password:</label>
+        <input type="password" name="password" id="password" required class="w-full p-2 border border-gray-300 rounded-md">
+    </div>
+
+    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md">Register</button>
+</form>

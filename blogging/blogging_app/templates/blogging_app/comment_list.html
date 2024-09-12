@@ -1,0 +1,25 @@
+{% extends 'basic.html' %}
+
+{% block title %}Comment List{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Comments</h1>
+    
+    <ul class="list-disc pl-5 space-y-4">
+        {% for comment in comments %}
+            <li class="border p-4 rounded-md bg-white shadow-sm">
+                <p><strong>Post:</strong> {{ comment.post.title }}</p>
+                <p><strong>Author:</strong> {{ comment.author_Comment }}</p>
+                <p><strong>Comment:</strong> {{ comment.text }}</p>
+                <form action="{% url 'delete_comment' comment.id %}" method="post">
+                    <!-- CSRF token omitted for simplicity -->
+                    <button type="submit" class="mt-2 bg-red-500 text-white px-4 py-2 rounded-md">Delete Comment</button>
+                </form>
+            </li>
+        {% empty %}
+            <li>No comments available.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'post_list' %}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md">Back to Posts</a>
+{% endblock %}
