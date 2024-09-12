@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+
+{% block title %}Post List{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Posts</h1>
+    <ul class="list-disc pl-5 space-y-4">
+        {% for post in posts %}
+            <li class="border p-4 rounded-md bg-white shadow-sm">
+                <h2 class="text-xl font-semibold mb-2">{{ post.title }}</h2>
+                <p class="text-lg mb-2">By {{ post.author }}</p>
+                <a href="{% url 'post_detail' post.id %}" class="text-blue-500 underline">View Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_post' %}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md">Add New Post</a>
+{% endblock %}
