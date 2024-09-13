@@ -8,6 +8,6 @@ urlpatterns = [
     path('posts/delete/<int:id>/', deletePost, name='deletePost'),
     path('comments/',showComment, name='showcomment'), 
     path('posts/<int:post_id>/comment/', write_comment, name='write_comment'),
-    path('auth/login/',user_login, name='user_login'),
+     path('auth/login/', user_login, name='user_login'),
     path('auth/register/', register, name='register'),
 ]
